@@ -8,3 +8,7 @@ project_name:
     type: str
     help: What is the name of the project?
     default: hexagonalarchitecture
+
+_exclude:
+    - ".github*"
+    - "copier.yaml"
