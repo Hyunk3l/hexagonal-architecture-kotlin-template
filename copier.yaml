@@ -12,3 +12,4 @@ project_name:
 _exclude:
     - ".github*"
     - "copier.yaml"
+    - "README.md"
