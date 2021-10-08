@@ -1,0 +1,10 @@
+
+group_name:
+    type: str
+    help: What is the name of the main package?
+    default: com.fabridinapoli
+
+project_name:
+    type: str
+    help: What is the name of the project?
+    default: hexagonalarchitecture
