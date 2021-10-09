@@ -14,3 +14,4 @@ _exclude:
     - "copier.yaml"
     - "README.md"
     - ".git*"
+    - "runTests.sh"

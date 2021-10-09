@@ -28,8 +28,5 @@ jobs:
       - name: Install copier
         run: pip install copier
 
-      - name: Copy & apply defaults using copier
-        run: copier . ../hexagonal-architecture-kotlin-template-test
-
       - name: Run tests
-        run: cd ../hexagonal-architecture-kotlin-template-test && ./gradlew clean build
+        run: ./runTests.sh
