@@ -13,3 +13,4 @@ _exclude:
     - ".github*"
     - "copier.yaml"
     - "README.md"
+    - ".git*"
