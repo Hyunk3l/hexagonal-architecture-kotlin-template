@@ -1,0 +1,11 @@
+import [[group_name]].[[project_name]].domain.model.Customer
+import [[group_name]].[[project_name]].domain.model.CustomerRepository
+
+class InMemoryCustomerRepository : CustomerRepository {
+
+    private val customers = mutableListOf<Customer>()
+
+    override fun save(customer: Customer) {
+        customers.add(customer)
+    }
+}

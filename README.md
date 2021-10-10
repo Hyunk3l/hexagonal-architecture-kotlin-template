@@ -14,3 +14,8 @@ you will be asked about a few configurations (name of the package, project etc.)
 Once done, open your `put-your-directory-here`.
 
 ## Testing
+
+
+## Caveats
+- Domain is anemic
+- Not publishing Domain Events
