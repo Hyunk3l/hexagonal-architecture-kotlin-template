@@ -2,7 +2,6 @@ package [[group_name]].[[project_name]].componenttest
 
 import [[group_name]].[[project_name]].Application
 import org.junit.jupiter.api.Tag
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.boot.web.server.LocalServerPort
 import org.testcontainers.junit.jupiter.Testcontainers
@@ -10,7 +9,6 @@ import org.testcontainers.junit.jupiter.Testcontainers
 @Tag("component")
 @Testcontainers
 @SpringBootTest(classes = [Application::class], webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
 abstract class BaseComponentTest {
     @LocalServerPort
     val servicePort: Int = 0
