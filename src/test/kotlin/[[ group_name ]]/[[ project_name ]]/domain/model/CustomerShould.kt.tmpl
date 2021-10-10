@@ -2,15 +2,16 @@ package [[group_name]].[[project_name]].domain.model
 
 import arrow.core.left
 import arrow.core.right
-import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import java.util.UUID
+import org.junit.jupiter.api.Test
 
 private val CUSTOMER_ID = UUID.randomUUID()
 
-class CustomerShould : StringSpec({
+class CustomerShould {
 
-    "create a customer when all the data is valid" {
+    @Test
+    fun `create a customer when all the data is valid`() {
         val expectedCustomer = Customer(
             id = CustomerId(id = CUSTOMER_ID),
             fullName = FullName("Fabrizio Di Napoli"),
@@ -27,7 +28,8 @@ class CustomerShould : StringSpec({
         customer shouldBe expectedCustomer.right()
     }
 
-    "cannot create a customer when name is empty" {
+    @Test
+    fun `cannot create a customer when name is empty`() {
         val customer = Customer.create(
             id = CUSTOMER_ID,
             name = "",
@@ -38,7 +40,8 @@ class CustomerShould : StringSpec({
         customer shouldBe DomainError("Name cannot be empty").left()
     }
 
-    "cannot create a customer when surname is empty" {
+    @Test
+    fun `cannot create a customer when surname is empty`() {
         val customer = Customer.create(
             id = CUSTOMER_ID,
             name = "Fabrizio",
@@ -49,7 +52,8 @@ class CustomerShould : StringSpec({
         customer shouldBe DomainError("Surname cannot be empty").left()
     }
 
-    "cannot create a customer when email is empty" {
+    @Test
+    fun `cannot create a customer when email is empty`() {
         val customer = Customer.create(
             id = CUSTOMER_ID,
             name = "Fabrizio",
@@ -59,4 +63,4 @@ class CustomerShould : StringSpec({
 
         customer shouldBe DomainError("Email cannot be empty").left()
     }
-})
+}

@@ -8,7 +8,6 @@ import [[group_name]].[[project_name]].domain.model.CustomerRepository
 import [[group_name]].[[project_name]].domain.model.DomainError
 import [[group_name]].[[project_name]].domain.model.Email
 import [[group_name]].[[project_name]].domain.model.FullName
-import io.kotest.core.spec.style.StringSpec
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.just
@@ -16,13 +15,15 @@ import io.mockk.mockk
 import io.mockk.runs
 import io.mockk.verify
 import java.util.UUID
+import org.junit.jupiter.api.Test
 
 private val CUSTOMER_ID = UUID.randomUUID()
 
-class SignUpCustomerServiceShould : StringSpec({
+class SignUpCustomerServiceShould {
+    private val repository = mockk<CustomerRepository>()
 
-    "sign up a customer successfully" {
-        val repository = mockk<CustomerRepository>()
+    @Test
+    fun `sign up a customer successfully`() {
         val customer = Customer(
             CustomerId(CUSTOMER_ID),
             FullName("Fabrizio Di Napoli"),
@@ -41,8 +42,8 @@ class SignUpCustomerServiceShould : StringSpec({
         response shouldBe SignUpCustomerResponse(id = CUSTOMER_ID).right()
     }
 
-    "return an error in case of customer data not passing business rules" {
-        val repository = mockk<CustomerRepository>()
+    @Test
+    fun `return an error in case of customer data not passing business rules`() {
         val request = SignUpCustomerRequest(
             id = CUSTOMER_ID,
             name = "Fabrizio",
@@ -55,4 +56,4 @@ class SignUpCustomerServiceShould : StringSpec({
         response shouldBe DomainError("Surname cannot be empty").left()
         verify(exactly = 0) { repository.save(any()) }
     }
-})
+}
