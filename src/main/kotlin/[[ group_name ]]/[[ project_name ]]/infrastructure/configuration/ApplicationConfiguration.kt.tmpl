@@ -1,14 +1,8 @@
 package [[group_name]].[[project_name]].infrastructure.configuration
 
-import [[group_name]].[[project_name]].application.service.AddProductToShoppingCartService
-import [[group_name]].[[project_name]].application.service.SearchProductsService
 import [[group_name]].[[project_name]].application.service.SignUpCustomerService
 import [[group_name]].[[project_name]].domain.model.CustomerRepository
-import [[group_name]].[[project_name]].domain.model.ProductRepository
 import [[group_name]].[[project_name]].infrastructure.outbound.memory.InMemoryCustomerRepository
-import [[group_name]].[[project_name]].infrastructure.outbound.memory.InMemoryProductRepository
-import [[group_name]].[[project_name]].infrastructure.outbound.memory.InMemoryUserRepository
-import [[group_name]].[[project_name]].infrastructure.outbound.outbox.InMemoryOutboxRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
