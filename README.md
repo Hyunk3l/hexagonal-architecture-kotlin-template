@@ -1,6 +1,5 @@
 # Hexagonal Architecture Kotlin Template
 
-## Description
 The purpose of this template is to avoid repeating, over and over again, the same basic packages structure, gradle and configurations.
 Note: this is just a skeleton with a silly example. Is good to start a project with it, but if you want to see a production ready and fully tested project with a lot of examples, please visit my friend [Albert Llousas Team Management repository](https://github.com/albertllousas/team-management-microservice).
 
