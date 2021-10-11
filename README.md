@@ -49,5 +49,6 @@ you will be asked about a few configurations (name of the package, project etc.)
 Once done, open your `put-your-directory-here`.
 
 ## Caveats
-- Domain is anemic
-- Not publishing Domain Events
+- Domain is anemic: just a silly example :)
+- Not publishing Domain Events: maybe in the future I will.
+- In memory repository has not been tested (on purpose). Maybe in the future I'll add a real db repository implementation.
