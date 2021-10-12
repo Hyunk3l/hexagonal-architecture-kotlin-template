@@ -24,18 +24,20 @@ that contains Inbound and Outbound Adapters, that are concrete implementations o
 
 ### Short introduction to Testing
 The silly example provided is, of course, tested (using Outside-In TDD).
-This is the typical [Testing Pyramid](https://martinfowler.com/bliki/TestPyramid.html) but adapted to (Micro)services.
+This project is following the typical [Testing Pyramid](https://martinfowler.com/bliki/TestPyramid.html), but adapted to (Micro)services.
 ![testing-pyramid](./assets/testing-pyramid.jpg)
 
-End-To-End Tests have been excluded on purpose, since their scope is broader than a single service.
+You will see that there are three different types of tests and each one of them has a concrete scope.
 
-Component Tests: this is a kind of test that have been popularized in Microservices Patterns (See [Service Component Tests](https://microservices.io/patterns/testing/service-component-test.html)),
+- **End-To-End Tests** have been excluded on purpose, since their scope is broader than a single service.
+
+- **Component Tests**: this is a kind of test that have been popularized in Microservices Patterns (See [Service Component Tests](https://microservices.io/patterns/testing/service-component-test.html)),
 but at the end is just another name for the well known Acceptance Tests. The scope is to test the service itself, in isolation, "mocking" external dependencies such as database (using [TestContainers](https://www.testcontainers.org/) for instance) and external services (using [Wiremock](http://wiremock.org/) for instance).
 
-Integration Tests: this kind of tests are run in isolation, there is no real call to an external service or a real database.
+- **Integration Tests**: this kind of tests are run in isolation, there is no real call to an external service or a real database.
 Here we include repositories, clients, controllers, consumers, producers tests etc. We can also include Contract Tests (extending Controller tests, for instance, to check contract with Consumers using some kind of tool like Pact.io).
 
-Unit Tests: and finally we "unit test" what's the most important part of the service: the Domain. Here we include all the tests for Aggregates, Value Objects, Entities, Domain Events, Application Services (aka Use Cases), Domain Services etc.
+- **Unit Tests**: and finally we "unit test" what's the most important part of the service: the Domain. Here we include all the tests for Aggregates, Value Objects, Entities, Domain Events, Application Services (aka Use Cases), Domain Services etc.
 
 ## How to run
 First you will need to install [Copier](https://github.com/copier-org/copier) on your local machine.
@@ -47,6 +49,14 @@ copier https://github.com/Hyunk3l/hexagonal-architecture-kotlin-template.git put
 ```
 you will be asked about a few configurations (name of the package, project etc.).
 Once done, open your `put-your-directory-here`.
+
+## How to run tests
+As you already know, there are three type of tests. You can run them separately or together:
+- Component: `./gradlew componentTest`
+- Integration: `./gradlew integrationTest`
+- Unit: `./gradlew unitTest`
+
+To run them together: `./gradlew test`
 
 ## Caveats
 - Domain is anemic: just a silly example :)
