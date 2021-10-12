@@ -46,6 +46,31 @@ tasks.withType<KotlinCompile> {
 	}
 }
 
-tasks.withType<Test> {
-	useJUnitPlatform()
+tasks {
+	withType<Test> {
+		useJUnitPlatform()
+	}
+
+	task<Test>("unitTest") {
+		useJUnitPlatform {
+			excludeTags("integration")
+			excludeTags("component")
+		}
+		shouldRunAfter(test)
+	}
+
+	task<Test>("integrationTest") {
+		description = "Runs integration tests."
+		useJUnitPlatform {
+			includeTags("integration")
+		}
+		shouldRunAfter(test)
+	}
+
+	task<Test>("componentTest") {
+		useJUnitPlatform {
+			includeTags("component")
+		}
+		shouldRunAfter(test)
+	}
 }
