@@ -16,12 +16,11 @@ data class Customer(
             name: String,
             surname: String,
             email: String,
-        ): Either<DomainError, Customer> {
-            if (name == "") return DomainError("Name cannot be empty").left()
-            if (surname == "") return DomainError("Surname cannot be empty").left()
-            if (email == "") return DomainError("Email cannot be empty").left()
-
-            return Customer(
+        ): Either<DomainError, Customer> = when {
+            name == "" -> DomainError("Name cannot be empty").left()
+            surname == "" -> DomainError("Surname cannot be empty").left()
+            email == "" -> DomainError("Email cannot be empty").left()
+            else -> Customer(
                 CustomerId(id),
                 FullName("$name $surname"),
                 Email(email),
