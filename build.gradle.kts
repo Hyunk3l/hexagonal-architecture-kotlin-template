@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-	id("org.springframework.boot") version "2.5.5"
+	id("org.springframework.boot") version "2.5.6"
 	id("io.spring.dependency-management") version "1.0.11.RELEASE"
 	id("io.gitlab.arturbosch.detekt") version "1.18.1"
 	kotlin("jvm") version "1.5.31"
@@ -29,9 +29,9 @@ dependencies {
 		exclude(module = "mockito-core")
 	}
 	testImplementation("io.projectreactor:reactor-test")
-	testImplementation("org.testcontainers:testcontainers:1.16.0")
-	testImplementation("org.testcontainers:junit-jupiter:1.16.0")
-	testImplementation("org.testcontainers:postgresql:1.16.0")
+	testImplementation("org.testcontainers:testcontainers:1.16.2")
+	testImplementation("org.testcontainers:junit-jupiter:1.16.2")
+	testImplementation("org.testcontainers:postgresql:1.16.2")
 	testImplementation("io.kotest:kotest-assertions-core-jvm:4.6.3")
 	testImplementation("io.kotest:kotest-assertions-json:4.6.3")
 	testImplementation("io.kotest:kotest-runner-junit5:4.6.3")
