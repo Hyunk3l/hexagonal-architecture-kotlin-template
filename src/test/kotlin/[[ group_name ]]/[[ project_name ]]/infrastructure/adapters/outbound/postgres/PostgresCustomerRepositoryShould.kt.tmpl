@@ -9,6 +9,7 @@ import java.time.Clock
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.temporal.ChronoUnit
 import java.util.UUID
 import org.junit.jupiter.api.Tag
 import org.junit.jupiter.api.Test
@@ -24,7 +25,8 @@ internal class PostgresCustomerRepositoryShould {
 
     @Test
     fun `save customer`() {
-        val clock = Clock.fixed(Instant.now(), ZoneId.systemDefault())
+        val instant = Instant.now().truncatedTo(ChronoUnit.NANOS)
+        val clock = Clock.fixed(instant, ZoneId.systemDefault())
         val customerId = UUID.randomUUID()
         val customer = Customer(
             CustomerId(customerId),
