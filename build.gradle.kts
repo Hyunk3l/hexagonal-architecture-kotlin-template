@@ -38,14 +38,12 @@ dependencies {
 	testImplementation("org.testcontainers:testcontainers:1.16.2")
 	testImplementation("org.testcontainers:junit-jupiter:1.16.2")
 	testImplementation("org.testcontainers:postgresql:1.16.2")
-	testImplementation("io.kotest:kotest-assertions-core-jvm:4.6.3")
-	testImplementation("io.kotest:kotest-assertions-json:4.6.3")
-	testImplementation("io.kotest:kotest-runner-junit5:4.6.3")
+	testImplementation("io.kotest:kotest-assertions-core-jvm:5.0.1")
+	testImplementation("io.kotest:kotest-assertions-json:5.0.1")
+	testImplementation("io.kotest:kotest-runner-junit5:5.0.1")
 	testImplementation("io.rest-assured:rest-assured:4.4.0")
 	testImplementation("io.mockk:mockk:1.12.1")
 	testImplementation("com.ninja-squad:springmockk:3.0.1")
-	testImplementation("org.flywaydb.flyway-test-extensions:flyway-spring-test:7.0.0")
-	testImplementation("org.flywaydb.flyway-test-extensions:flyway-test:7.0.0")
 }
 
 tasks.withType<KotlinCompile> {
