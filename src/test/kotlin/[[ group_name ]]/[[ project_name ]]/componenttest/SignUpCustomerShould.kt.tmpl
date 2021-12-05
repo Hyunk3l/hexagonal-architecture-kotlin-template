@@ -2,7 +2,6 @@ package [[group_name]].[[project_name]].componenttest
 
 import [[group_name]].[[project_name]].domain.model.Customer
 import [[group_name]].[[project_name]].domain.model.CustomerId
-import [[group_name]].[[project_name]].domain.model.CustomerRepository
 import [[group_name]].[[project_name]].domain.model.Email
 import [[group_name]].[[project_name]].domain.model.FullName
 import io.kotest.assertions.json.shouldEqualJson
@@ -17,19 +16,8 @@ private val CUSTOMER_ID = UUID.randomUUID()
 
 class SignUpCustomerShould : BaseComponentTest() {
 
-    @Autowired
-    private lateinit var customerRepository: CustomerRepository
-
     @Test
     fun `sign up a customer successfully`() {
-        customerRepository.save(
-            Customer(
-                CustomerId(CUSTOMER_ID),
-                FullName("Fabrizio Di Napoli"),
-                Email("some.email@example.org")
-            )
-        )
-
         val response = given()
             .contentType(ContentType.APPLICATION_JSON.toString())
             .port(servicePort)

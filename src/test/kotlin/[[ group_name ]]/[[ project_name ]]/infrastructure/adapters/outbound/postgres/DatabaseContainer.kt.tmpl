@@ -1,0 +1,36 @@
+package [[group_name]].[[project_name]].infrastructure.adapters.outbound.postgres
+
+import com.zaxxer.hikari.HikariConfig
+import com.zaxxer.hikari.HikariDataSource
+import org.flywaydb.core.Flyway
+import org.flywaydb.core.api.configuration.FluentConfiguration
+import org.testcontainers.containers.PostgreSQLContainer
+import org.testcontainers.utility.DockerImageName
+
+object DatabaseContainer {
+
+    val dataSource: HikariDataSource
+
+    val postgresContainer: PostgreSQLContainer<*> = PostgreSQLContainer(DockerImageName.parse("postgres:14.1"))
+        .also {
+            it.withDatabaseName("somedatabasename")
+            it.withUsername("postgres")
+            it.withPassword("postgres")
+        }
+        .also { it.start() }
+
+    init {
+        val databaseConfig = HikariConfig().also {
+            it.jdbcUrl = postgresContainer.jdbcUrl
+            it.username = postgresContainer.username
+            it.password = postgresContainer.password
+            it.driverClassName = postgresContainer.driverClassName
+        }
+        dataSource = HikariDataSource(databaseConfig)
+
+        Flyway(
+            FluentConfiguration()
+                .dataSource(dataSource)
+        ).migrate()
+    }
+}

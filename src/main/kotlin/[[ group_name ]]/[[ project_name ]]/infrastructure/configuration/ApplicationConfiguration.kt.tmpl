@@ -2,7 +2,7 @@ package [[group_name]].[[project_name]].infrastructure.configuration
 
 import [[group_name]].[[project_name]].application.service.SignUpCustomerService
 import [[group_name]].[[project_name]].domain.model.CustomerRepository
-import [[group_name]].[[project_name]].infrastructure.adapters.outbound.memory.InMemoryCustomerRepository
+import [[group_name]].[[project_name]].infrastructure.adapters.outbound.postgres.PostgresCustomerRepository
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
 
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration
 class ApplicationConfiguration {
 
     @Bean
-    fun customerRepository() = InMemoryCustomerRepository()
+    fun customerRepository(jdbcTemplate: JdbcTemplate) = PostgresCustomerRepository(jdbcTemplate, Clock.systemUTC())
 
     @Bean
     fun signUpCustomerService(repository: CustomerRepository) = SignUpCustomerService(repository)

@@ -24,9 +24,14 @@ dependencies {
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.5.2-native-mt")
 	implementation("io.arrow-kt:arrow-core:1.0.1")
+	implementation("com.zaxxer:HikariCP:5.0.0")
+	implementation("org.postgresql:postgresql:42.3.1")
+	implementation("org.flywaydb:flyway-core:8.2.0")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.1") {
 		exclude(module = "mockito-core")
+		exclude(group = "junit", module = "junit")
+		exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
 	}
 	testImplementation("io.projectreactor:reactor-test:3.4.12")
 	testImplementation("org.testcontainers:testcontainers:1.16.2")
@@ -38,6 +43,8 @@ dependencies {
 	testImplementation("io.rest-assured:rest-assured:4.4.0")
 	testImplementation("io.mockk:mockk:1.12.1")
 	testImplementation("com.ninja-squad:springmockk:3.0.1")
+	testImplementation("org.flywaydb.flyway-test-extensions:flyway-spring-test:7.0.0")
+	testImplementation("org.flywaydb.flyway-test-extensions:flyway-test:7.0.0")
 }
 
 tasks.withType<KotlinCompile> {
