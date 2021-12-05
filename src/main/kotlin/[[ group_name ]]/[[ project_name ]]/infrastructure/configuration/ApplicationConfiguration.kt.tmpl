@@ -3,8 +3,10 @@ package [[group_name]].[[project_name]].infrastructure.configuration
 import [[group_name]].[[project_name]].application.service.SignUpCustomerService
 import [[group_name]].[[project_name]].domain.model.CustomerRepository
 import [[group_name]].[[project_name]].infrastructure.adapters.outbound.postgres.PostgresCustomerRepository
+import java.time.Clock
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.jdbc.core.JdbcTemplate
 
 @Configuration
 class ApplicationConfiguration {
