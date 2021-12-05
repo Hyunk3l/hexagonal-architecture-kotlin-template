@@ -58,6 +58,12 @@ As you already know, there are three type of tests. You can run them separately 
 
 To run them together: `./gradlew test`
 
+## How to run locally
+If you really want to run your service locally (why would you? It's fully covered with multiple layers of tests), run the following commands:
+
+1. Run containers `docker-compose up`
+2. Run the service `./gradlew bootRun`
+
 ## Caveats
 - Domain is anemic: just a silly example :)
 - Not publishing Domain Events: maybe in the future I will.
