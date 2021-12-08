@@ -9,8 +9,6 @@ import org.testcontainers.utility.DockerImageName
 
 class DatabaseContainer {
 
-    val dataSource: HikariDataSource
-
     val postgresContainer: PostgreSQLContainer<*> = PostgreSQLContainer(DockerImageName.parse("postgres:14.1"))
         .also {
             it.withDatabaseName("somedatabasename")
@@ -19,18 +17,17 @@ class DatabaseContainer {
         }
         .also { it.start() }
 
-    init {
-        val databaseConfig = HikariConfig().also {
+    val dataSource: HikariDataSource = HikariConfig()
+        .also {
             it.jdbcUrl = postgresContainer.jdbcUrl
             it.username = postgresContainer.username
             it.password = postgresContainer.password
             it.driverClassName = postgresContainer.driverClassName
+        }.let {
+            HikariDataSource(it)
+        }.also {
+            Flyway(
+                FluentConfiguration().dataSource(it)
+            ).migrate()
         }
-        dataSource = HikariDataSource(databaseConfig)
-
-        Flyway(
-            FluentConfiguration()
-                .dataSource(dataSource)
-        ).migrate()
-    }
 }
