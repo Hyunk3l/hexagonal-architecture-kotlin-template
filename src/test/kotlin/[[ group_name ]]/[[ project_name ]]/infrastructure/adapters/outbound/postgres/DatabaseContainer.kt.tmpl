@@ -7,7 +7,7 @@ import org.flywaydb.core.api.configuration.FluentConfiguration
 import org.testcontainers.containers.PostgreSQLContainer
 import org.testcontainers.utility.DockerImageName
 
-object DatabaseContainer {
+class DatabaseContainer {
 
     val dataSource: HikariDataSource
 
@@ -20,6 +20,7 @@ object DatabaseContainer {
         .also { it.start() }
 
     init {
+        println("BOOTING POSTGRES!!!!!")
         val databaseConfig = HikariConfig().also {
             it.jdbcUrl = postgresContainer.jdbcUrl
             it.username = postgresContainer.username

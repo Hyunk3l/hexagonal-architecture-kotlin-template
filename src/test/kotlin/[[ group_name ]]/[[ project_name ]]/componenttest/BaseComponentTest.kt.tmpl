@@ -23,7 +23,7 @@ abstract class BaseComponentTest {
         @JvmStatic
         @DynamicPropertySource
         fun postgresProperties(registry: DynamicPropertyRegistry) {
-            val postgresContainer = DatabaseContainer.postgresContainer
+            val postgresContainer = DatabaseContainer().postgresContainer
             registry.add("spring.datasource.url", postgresContainer::getJdbcUrl)
             registry.add("spring.datasource.username", postgresContainer::getUsername)
             registry.add("spring.datasource.password", postgresContainer::getPassword)
