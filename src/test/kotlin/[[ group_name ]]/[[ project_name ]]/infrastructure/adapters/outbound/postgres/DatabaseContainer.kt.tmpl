@@ -9,14 +9,11 @@ import org.testcontainers.utility.DockerImageName
 
 class DatabaseContainer {
 
-    val postgresContainer = PostgreSQLContainer(DockerImageName.parse("postgres:14.1"))
-        .also {
-            it
-                .withDatabaseName("somedatabasename")
-                .withUsername("postgres")
-                .withPassword("postgres")
-                .start()
-        }
+    val postgresContainer: PostgreSQLContainer<*> = PostgreSQLContainer(DockerImageName.parse("postgres:14.1"))
+        .withDatabaseName("somedatabasename")
+        .withUsername("postgres")
+        .withPassword("postgres")
+        .also(PostgreSQLContainer<*>::start)
 
     val dataSource = HikariConfig()
         .apply {
