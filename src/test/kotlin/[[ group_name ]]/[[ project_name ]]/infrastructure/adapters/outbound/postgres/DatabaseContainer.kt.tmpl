@@ -13,7 +13,7 @@ class DatabaseContainer {
         .withDatabaseName("somedatabasename")
         .withUsername("postgres")
         .withPassword("postgres")
-        .also(PostgreSQLContainer<*>::start)
+        .also{ it.start() }
 
     val dataSource = HikariConfig()
         .apply {
