@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux:2.6.1")
     implementation("org.springframework.boot:spring-boot-starter-jdbc:2.6.1")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.0")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.5")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0")
@@ -27,7 +27,7 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:1.0.1")
     implementation("com.zaxxer:HikariCP:5.0.0")
     implementation("org.postgresql:postgresql:42.3.1")
-    implementation("org.flywaydb:flyway-core:8.2.0")
+    implementation("org.flywaydb:flyway-core:8.2.3")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.1") {
@@ -44,7 +44,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:5.0.2")
     testImplementation("io.rest-assured:rest-assured:4.4.0")
     testImplementation("io.mockk:mockk:1.12.1")
-    testImplementation("com.ninja-squad:springmockk:3.0.1")
+    testImplementation("com.ninja-squad:springmockk:3.1.0")
 }
 
 tasks.withType<KotlinCompile> {
