@@ -43,6 +43,9 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-json:5.1.0")
     testImplementation("io.kotest:kotest-runner-junit5:5.1.0")
     testImplementation("io.rest-assured:rest-assured:4.5.0")
+    testImplementation("io.rest-assured:json-path:4.5.0")
+    testImplementation("io.rest-assured:xml-path:4.5.0")
+    testImplementation("io.rest-assured:json-schema-validator:4.5.0")
     testImplementation("io.mockk:mockk:1.12.2")
     testImplementation("com.ninja-squad:springmockk:3.1.0")
 }
