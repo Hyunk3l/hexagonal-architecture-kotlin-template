@@ -26,8 +26,8 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.0-native-mt")
     implementation("io.arrow-kt:arrow-core:1.0.1")
     implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.postgresql:postgresql:42.3.2")
-    implementation("org.flywaydb:flyway-core:8.5.0")
+    implementation("org.postgresql:postgresql:42.3.3")
+    implementation("org.flywaydb:flyway-core:8.5.2")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.4") {
@@ -35,19 +35,19 @@ dependencies {
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("io.projectreactor:reactor-test:3.4.14")
+    testImplementation("io.projectreactor:reactor-test:3.4.15")
     testImplementation("org.testcontainers:testcontainers:1.16.3")
     testImplementation("org.testcontainers:junit-jupiter:1.16.3")
     testImplementation("org.testcontainers:postgresql:1.16.3")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.1.0")
     testImplementation("io.kotest:kotest-assertions-json:5.1.0")
     testImplementation("io.kotest:kotest-runner-junit5:5.1.0")
-    testImplementation("io.rest-assured:rest-assured:4.5.0")
-    testImplementation("io.rest-assured:json-path:4.5.0")
-    testImplementation("io.rest-assured:xml-path:4.5.0")
-    testImplementation("io.rest-assured:json-schema-validator:4.5.0")
-    testImplementation("io.mockk:mockk:1.12.2")
-    testImplementation("com.ninja-squad:springmockk:3.1.0")
+    testImplementation("io.rest-assured:rest-assured:4.5.1")
+    testImplementation("io.rest-assured:json-path:4.5.1")
+    testImplementation("io.rest-assured:xml-path:4.5.1")
+    testImplementation("io.rest-assured:json-schema-validator:4.5.1")
+    testImplementation("io.mockk:mockk:1.12.3")
+    testImplementation("com.ninja-squad:springmockk:3.1.1")
 }
 
 tasks.withType<KotlinCompile> {
