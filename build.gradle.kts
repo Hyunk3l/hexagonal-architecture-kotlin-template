@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.2")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.6")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.6.0")
@@ -27,7 +27,7 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:1.0.1")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.postgresql:postgresql:42.3.3")
-    implementation("org.flywaydb:flyway-core:8.5.2")
+    implementation("org.flywaydb:flyway-core:8.5.7")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
