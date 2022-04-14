@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.6.4"
+    id("org.springframework.boot") version "2.6.6"
     id("io.spring.dependency-management") version "1.0.11.RELEASE"
     id("io.gitlab.arturbosch.detekt") version "1.19.0"
     kotlin("jvm") version "1.6.10"
@@ -17,8 +17,8 @@ repositories {
 }
 
 dependencies {
-    implementation("org.springframework.boot:spring-boot-starter-webflux:2.6.4")
-    implementation("org.springframework.boot:spring-boot-starter-jdbc:2.6.4")
+    implementation("org.springframework.boot:spring-boot-starter-webflux")
+    implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.1")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.5")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.6.0")
@@ -30,7 +30,7 @@ dependencies {
     implementation("org.flywaydb:flyway-core:8.5.2")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.0"))
 
-    testImplementation("org.springframework.boot:spring-boot-starter-test:2.6.4") {
+    testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
