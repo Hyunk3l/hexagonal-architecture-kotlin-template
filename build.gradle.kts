@@ -27,7 +27,7 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:1.1.2")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.postgresql:postgresql:42.3.4")
-    implementation("org.flywaydb:flyway-core:8.5.9")
+    implementation("org.flywaydb:flyway-core:8.5.10")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.17.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -39,9 +39,9 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers:1.17.1")
     testImplementation("org.testcontainers:junit-jupiter:1.17.1")
     testImplementation("org.testcontainers:postgresql:1.17.1")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.2.3")
-    testImplementation("io.kotest:kotest-assertions-json:5.2.3")
-    testImplementation("io.kotest:kotest-runner-junit5:5.2.3")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.3.0")
+    testImplementation("io.kotest:kotest-assertions-json:5.3.0")
+    testImplementation("io.kotest:kotest-runner-junit5:5.3.0")
     testImplementation("io.rest-assured:rest-assured:5.0.1")
     testImplementation("io.rest-assured:json-path:5.0.1")
     testImplementation("io.rest-assured:xml-path:5.0.1")
