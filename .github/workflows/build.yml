@@ -30,6 +30,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
       - name: Install copier
         run: pip install copier
 
