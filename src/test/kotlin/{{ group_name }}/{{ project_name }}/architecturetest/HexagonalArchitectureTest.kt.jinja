@@ -1,0 +1,24 @@
+package {{ group_name }}.{{ project_name }}.architecturetest
+
+import com.tngtech.archunit.core.importer.ClassFileImporter
+import com.tngtech.archunit.core.importer.ImportOption.Predefined.DO_NOT_INCLUDE_TESTS
+import com.tngtech.archunit.lang.syntax.ArchRuleDefinition.classes
+import org.junit.jupiter.api.Test
+
+class HexagonalArchitectureTest {
+
+    @Test
+    fun `domain should depend on domain only`() {
+        val importedClasses = ClassFileImporter()
+            .withImportOption(DO_NOT_INCLUDE_TESTS)
+            .importPackages("{{ group_name }}.{{ project_name }}");
+
+        classes()
+            .that()
+            .resideInAPackage("..domain..")
+            .should()
+            .onlyDependOnClassesThat()
+            .resideInAnyPackage("..domain..", "java..", "javax..", "org.jetbrains..", "kotlin..", "arrow..")
+            .check(importedClasses)
+    }
+}
