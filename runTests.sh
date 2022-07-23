@@ -1,5 +1,5 @@
 
-copier . ../hexagonal-architecture-kotlin-template-test && \
+copier -f . ../hexagonal-architecture-kotlin-template-test && \
   cd ../hexagonal-architecture-kotlin-template-test && \
   ./gradlew clean build --info && \
   cd ../ && \
