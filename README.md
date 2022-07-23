@@ -1,3 +1,5 @@
+![hexagonal-architecture](./assets/hexagonal-architecture.png)
+
 # Hexagonal Architecture Kotlin Template
 
 The purpose of this template is to avoid repeating, over and over again, the same basic packages structure, gradle and configurations.
