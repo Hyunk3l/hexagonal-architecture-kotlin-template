@@ -7,18 +7,44 @@ import org.junit.jupiter.api.Test
 
 class HexagonalArchitectureTest {
 
+    private val importedClasses = ClassFileImporter()
+        .withImportOption(DO_NOT_INCLUDE_TESTS)
+        .importPackages("{{ group_name }}.{{ project_name }}")
+
     @Test
     fun `domain should depend on domain only`() {
-        val importedClasses = ClassFileImporter()
-            .withImportOption(DO_NOT_INCLUDE_TESTS)
-            .importPackages("{{ group_name }}.{{ project_name }}");
-
         classes()
             .that()
             .resideInAPackage("..domain..")
             .should()
             .onlyDependOnClassesThat()
-            .resideInAnyPackage("..domain..", "java..", "javax..", "org.jetbrains..", "kotlin..", "arrow..")
+            .resideInAnyPackage(
+                "..domain..",
+                "java..",
+                "javax..",
+                "org.jetbrains..",
+                "kotlin..",
+                "arrow.."
+            )
+            .check(importedClasses)
+    }
+
+    @Test
+    fun `application services should not depend on infrastructure`() {
+        classes()
+            .that()
+            .resideInAPackage("..application..")
+            .should()
+            .onlyDependOnClassesThat()
+            .resideInAnyPackage(
+                "..domain..",
+                "..application..",
+                "java..",
+                "javax..",
+                "org.jetbrains..",
+                "kotlin..",
+                "arrow.."
+            )
             .check(importedClasses)
     }
 }
