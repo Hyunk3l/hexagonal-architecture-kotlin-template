@@ -1,5 +1,7 @@
 ![hexagonal-architecture](./assets/hexagonal-architecture.png)
 
+![flujo de trabajo de ejemplo](https://github.com/Hyunk3l/hexagonal-architecture-kotlin-template/actions/workflows/build.yml/badge.svg)
+
 # Hexagonal Architecture Kotlin Template
 
 The purpose of this template is to avoid repeating, over and over again, the same basic packages structure, gradle and configurations.
