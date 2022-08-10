@@ -1,8 +1,13 @@
 
+tld:
+    type: str
+    help: What is the top level domain of your main package?
+    default: com
+
 group_name:
     type: str
     help: What is the name of the main package?
-    default: com.fabridinapoli
+    default: fabridinapoli
 
 project_name:
     type: str
