@@ -1,9 +1,9 @@
-package {{group_name}}.{{project_name}}.application.service
+package {{tld}}.{{group_name}}.{{project_name}}.application.service
 
 import arrow.core.Either
-import {{group_name}}.{{project_name}}.domain.model.Customer
-import {{group_name}}.{{project_name}}.domain.model.CustomerRepository
-import {{group_name}}.{{project_name}}.domain.model.DomainError
+import {{tld}}.{{group_name}}.{{project_name}}.domain.model.Customer
+import {{tld}}.{{group_name}}.{{project_name}}.domain.model.CustomerRepository
+import {{tld}}.{{group_name}}.{{project_name}}.domain.model.DomainError
 import java.util.UUID
 
 class SignUpCustomerService(private val repository: CustomerRepository) {
