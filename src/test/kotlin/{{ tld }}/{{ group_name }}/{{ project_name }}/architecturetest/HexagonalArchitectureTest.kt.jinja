@@ -9,7 +9,7 @@ class HexagonalArchitectureTest {
 
     private val importedClasses = ClassFileImporter()
         .withImportOption(DO_NOT_INCLUDE_TESTS)
-        .importPackages("{{ group_name }}.{{ project_name }}")
+        .importPackages("{{tld}}.{{group_name}}.{{project_name}}")
 
     @Test
     fun `domain should depend on domain only`() {
