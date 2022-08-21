@@ -26,7 +26,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
     implementation("io.arrow-kt:arrow-core:1.1.2")
     implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.postgresql:postgresql:42.3.6")
+    implementation("org.postgresql:postgresql:42.4.2")
     implementation("org.flywaydb:flyway-core:8.5.13")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.18.0"))
 
@@ -35,7 +35,7 @@ dependencies {
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("io.projectreactor:reactor-test:3.4.21")
+    testImplementation("io.projectreactor:reactor-test:3.4.22")
     testImplementation("org.testcontainers:testcontainers:1.17.3")
     testImplementation("org.testcontainers:junit-jupiter:1.17.3")
     testImplementation("org.testcontainers:postgresql:1.17.3")
