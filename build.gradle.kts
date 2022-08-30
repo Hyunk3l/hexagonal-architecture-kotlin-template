@@ -26,7 +26,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
     implementation("io.arrow-kt:arrow-core:1.1.2")
     implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.postgresql:postgresql:42.4.2")
+    implementation("org.postgresql:postgresql:42.5.0")
     implementation("org.flywaydb:flyway-core:8.5.13")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.18.0"))
 
@@ -46,7 +46,7 @@ dependencies {
     testImplementation("io.rest-assured:json-path:5.1.1")
     testImplementation("io.rest-assured:xml-path:5.1.1")
     testImplementation("io.rest-assured:json-schema-validator:5.1.1")
-    testImplementation("io.mockk:mockk:1.12.5")
+    testImplementation("io.mockk:mockk:1.12.7")
     testImplementation("com.ninja-squad:springmockk:3.1.1")
     testImplementation("com.tngtech.archunit:archunit:1.0.0-rc1")
 }
