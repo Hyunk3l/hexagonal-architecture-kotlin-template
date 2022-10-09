@@ -1,11 +1,11 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "2.7.3"
+    id("org.springframework.boot") version "2.7.4"
     id("io.spring.dependency-management") version "1.0.13.RELEASE"
     id("io.gitlab.arturbosch.detekt") version "1.21.0"
-    kotlin("jvm") version "1.7.10"
-    kotlin("plugin.spring") version "1.7.10"
+    kotlin("jvm") version "1.7.20"
+    kotlin("plugin.spring") version "1.7.20"
 }
 
 group = "{{ group_name }}"
@@ -27,8 +27,8 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:1.1.2")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.postgresql:postgresql:42.5.0")
-    implementation("org.flywaydb:flyway-core:9.3.0")
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.18.0"))
+    implementation("org.flywaydb:flyway-core:9.4.0")
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.19.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
