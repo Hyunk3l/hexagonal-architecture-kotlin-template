@@ -35,7 +35,7 @@ dependencies {
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("io.projectreactor:reactor-test:3.4.22")
+    testImplementation("io.projectreactor:reactor-test:3.4.23")
     testImplementation("org.testcontainers:testcontainers:1.17.4")
     testImplementation("org.testcontainers:junit-jupiter:1.17.4")
     testImplementation("org.testcontainers:postgresql:1.17.4")
@@ -46,9 +46,9 @@ dependencies {
     testImplementation("io.rest-assured:json-path:5.2.0")
     testImplementation("io.rest-assured:xml-path:5.2.0")
     testImplementation("io.rest-assured:json-schema-validator:5.2.0")
-    testImplementation("io.mockk:mockk:1.12.7")
+    testImplementation("io.mockk:mockk:1.13.2")
     testImplementation("com.ninja-squad:springmockk:3.1.1")
-    testImplementation("com.tngtech.archunit:archunit:1.0.0-rc1")
+    testImplementation("com.tngtech.archunit:archunit:1.0.0")
 }
 
 tasks.withType<KotlinCompile> {
