@@ -36,9 +36,9 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
     testImplementation("io.projectreactor:reactor-test:3.4.22")
-    testImplementation("org.testcontainers:testcontainers:1.17.3")
-    testImplementation("org.testcontainers:junit-jupiter:1.17.3")
-    testImplementation("org.testcontainers:postgresql:1.17.3")
+    testImplementation("org.testcontainers:testcontainers:1.17.4")
+    testImplementation("org.testcontainers:junit-jupiter:1.17.4")
+    testImplementation("org.testcontainers:postgresql:1.17.4")
     testImplementation("io.kotest:kotest-assertions-core-jvm:5.4.2")
     testImplementation("io.kotest:kotest-assertions-json:5.4.2")
     testImplementation("io.kotest:kotest-runner-junit5:5.4.2")
