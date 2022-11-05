@@ -43,6 +43,8 @@ Here we include repositories, clients, controllers, consumers, producers tests e
 
 - **Unit Tests**: and finally we "unit test" what's the most important part of the service: the Domain. Here we include all the tests for Aggregates, Value Objects, Entities, Domain Events, Application Services (aka Use Cases), Domain Services etc.
 
+For a full overview, have a look at [my article on Medium](https://fabridinapoli.medium.com/component-vs-integration-vs-unit-tests-in-microservices-architecture-e0aa389f93d1).
+
 ## How to run
 First you will need to install [Copier](https://github.com/copier-org/copier) on your local machine.
 This is an open-source tool to copy directories and files from one place to another also using templates.
