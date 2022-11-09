@@ -19,7 +19,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.1.7")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.20")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.20")
@@ -27,7 +27,7 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:1.1.2")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.postgresql:postgresql:42.5.0")
-    implementation("org.flywaydb:flyway-core:9.6.0")
+    implementation("org.flywaydb:flyway-core:9.7.0")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.19.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -39,9 +39,9 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers:1.17.4")
     testImplementation("org.testcontainers:junit-jupiter:1.17.4")
     testImplementation("org.testcontainers:postgresql:1.17.4")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.3")
-    testImplementation("io.kotest:kotest-assertions-json:5.5.3")
-    testImplementation("io.kotest:kotest-runner-junit5:5.5.3")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.4")
+    testImplementation("io.kotest:kotest-assertions-json:5.5.4")
+    testImplementation("io.kotest:kotest-runner-junit5:5.5.4")
     testImplementation("io.rest-assured:rest-assured:5.2.0")
     testImplementation("io.rest-assured:json-path:5.2.0")
     testImplementation("io.rest-assured:xml-path:5.2.0")
