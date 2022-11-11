@@ -14,8 +14,7 @@ java.sourceCompatibility = JavaVersion.VERSION_17
 
 repositories {
     mavenCentral()
-    maven(url = "https://repo.spring.io/snapshot")
-    maven(url = "https://repo.spring.io/milestone")
+    maven { url = uri("https://repo.spring.io/milestone") }
 }
 
 dependencies {
