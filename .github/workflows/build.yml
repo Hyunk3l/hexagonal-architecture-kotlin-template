@@ -29,6 +29,7 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
+          cache: gradle
 
       - uses: actions/setup-python@v4
         with:
