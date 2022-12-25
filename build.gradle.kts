@@ -20,14 +20,14 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.0")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.1")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.22")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
     implementation("io.arrow-kt:arrow-core:1.1.3")
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.postgresql:postgresql:42.5.1")
-    implementation("org.flywaydb:flyway-core:9.8.3")
+    implementation("org.flywaydb:flyway-core:9.10.2")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.19.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -35,7 +35,7 @@ dependencies {
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("io.projectreactor:reactor-test:3.5.0")
+    testImplementation("io.projectreactor:reactor-test:3.5.1")
     testImplementation("org.testcontainers:testcontainers:1.17.6")
     testImplementation("org.testcontainers:junit-jupiter:1.17.6")
     testImplementation("org.testcontainers:postgresql:1.17.6")
