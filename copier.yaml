@@ -21,3 +21,4 @@ _exclude:
     - ".git*"
     - "runTests.sh"
     - "assets"
+    - "requirements.txt"
