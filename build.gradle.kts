@@ -4,8 +4,8 @@ plugins {
     id("org.springframework.boot") version "3.0.1"
     id("io.spring.dependency-management") version "1.1.0"
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
-    kotlin("jvm") version "1.7.22"
-    kotlin("plugin.spring") version "1.7.22"
+    kotlin("jvm") version "1.8.0"
+    kotlin("plugin.spring") version "1.8.0"
 }
 
 group = "{{ group_name }}"
@@ -21,8 +21,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.1")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.1")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:1.7.22")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.7.22")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:1.8.0")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
     implementation("io.arrow-kt:arrow-core:1.1.3")
     implementation("com.zaxxer:HikariCP:5.0.1")
