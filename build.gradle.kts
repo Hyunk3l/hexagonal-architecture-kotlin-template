@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    id("org.springframework.boot") version "3.0.2"
+    id("org.springframework.boot") version "3.0.3"
     id("io.spring.dependency-management") version "1.1.0"
     id("io.gitlab.arturbosch.detekt") version "1.22.0"
     kotlin("jvm") version "1.8.10"
@@ -26,22 +26,22 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.6.4")
     implementation("io.arrow-kt:arrow-core:1.1.5")
     implementation("com.zaxxer:HikariCP:5.0.1")
-    implementation("org.postgresql:postgresql:42.5.2")
-    implementation("org.flywaydb:flyway-core:9.14.1")
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.19.0"))
+    implementation("org.postgresql:postgresql:42.5.4")
+    implementation("org.flywaydb:flyway-core:9.15.1")
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.20.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("io.projectreactor:reactor-test:3.5.2")
+    testImplementation("io.projectreactor:reactor-test:3.5.3")
     testImplementation("org.testcontainers:testcontainers:1.17.6")
     testImplementation("org.testcontainers:junit-jupiter:1.17.6")
     testImplementation("org.testcontainers:postgresql:1.17.6")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.4")
-    testImplementation("io.kotest:kotest-assertions-json:5.5.4")
-    testImplementation("io.kotest:kotest-runner-junit5:5.5.4")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.5.5")
+    testImplementation("io.kotest:kotest-assertions-json:5.5.5")
+    testImplementation("io.kotest:kotest-runner-junit5:5.5.5")
     testImplementation("io.rest-assured:rest-assured:5.3.0")
     testImplementation("io.rest-assured:json-path:5.3.0")
     testImplementation("io.rest-assured:xml-path:5.3.0")
