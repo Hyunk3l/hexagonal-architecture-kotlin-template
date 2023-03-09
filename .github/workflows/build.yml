@@ -31,3 +31,23 @@ jobs:
 
       - name: Run tests
         run: ./runTests.sh
+  dependabot:
+    runs-on: ubuntu-latest
+    if: ${{ github.actor == 'dependabot[bot]' }}
+    needs: [ build ]
+    steps:
+      - name: Get Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v1
+        with:
+          github-token: "${{ secrets.GITHUB_TOKEN }}"
+      - name: Approve a PR
+        run: gh pr review --approve "$PR_URL"
+        env:
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+      - name: Auto-merge Dependabot PRs
+        # Find the PR number based on the current branch name, and squash merge based on this number
+        run: 'PR_NUM="$(gh pr list | grep $(git branch --show-current) | cut -f1)"; gh pr merge --auto --squash $PR_NUM'
+        env:
+          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
