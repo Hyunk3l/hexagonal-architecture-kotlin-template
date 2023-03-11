@@ -35,6 +35,7 @@ jobs:
 
       - name: Run tests
         run: ./runTests.sh
+
   dependabot:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
@@ -55,7 +56,8 @@ jobs:
           PR_URL: ${{github.event.pull_request.html_url}}
           GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
-      - name: Auto-merge Dependabot PRs
-        run: 'PR_NUM="$(gh pr list | grep $(git branch --show-current) | cut -f1)"; gh pr merge --auto --squash $PR_NUM'
+      - name: Merge PR
+        run: gh pr merge --admin -s "$PR_URL"
         env:
-          GH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          PR_URL: ${{github.event.pull_request.html_url}}
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
