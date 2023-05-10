@@ -35,7 +35,7 @@ dependencies {
         exclude(group = "junit", module = "junit")
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
-    testImplementation("io.projectreactor:reactor-test:3.5.5")
+    testImplementation("io.projectreactor:reactor-test:3.5.6")
     testImplementation("org.testcontainers:testcontainers:1.18.0")
     testImplementation("org.testcontainers:junit-jupiter:1.18.0")
     testImplementation("org.testcontainers:postgresql:1.18.0")
