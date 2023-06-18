@@ -1,1 +1,1 @@
-copier
+copier == 7.*
