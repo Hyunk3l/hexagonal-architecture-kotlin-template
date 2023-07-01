@@ -1,1 +1,2 @@
+pydandic<2
 copier == 8.*
