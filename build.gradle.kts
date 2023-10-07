@@ -4,8 +4,8 @@ plugins {
     id("org.springframework.boot") version "3.1.4"
     id("io.spring.dependency-management") version "1.1.3"
     id("io.gitlab.arturbosch.detekt") version "1.23.1"
-    kotlin("jvm") version "1.9.0"
-    kotlin("plugin.spring") version "1.9.0"
+    kotlin("jvm") version "1.9.10"
+    kotlin("plugin.spring") version "1.9.10"
 }
 
 group = "{{ group_name }}"
@@ -55,6 +55,17 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "17"
+    }
+}
+
+// Temporary fix for the incompatibility of Detekt with Kotlin 1.9.10
+configurations.detekt {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            // See https://github.com/detekt/detekt/issues/6198#issuecomment-1700332653
+            // and https://github.com/detekt/detekt/issues/6428
+            useVersion("1.9.0")
+        }
     }
 }
 
