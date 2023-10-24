@@ -28,7 +28,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:5.0.1")
     implementation("org.postgresql:postgresql:42.6.0")
     implementation("org.flywaydb:flyway-core:9.22.3")
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.21.0"))
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.21.1"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
