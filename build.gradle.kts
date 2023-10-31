@@ -5,7 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.3"
     id("io.gitlab.arturbosch.detekt") version "1.23.2"
     kotlin("jvm") version "1.9.20"
-    kotlin("plugin.spring") version "1.9.10"
+    kotlin("plugin.spring") version "1.9.20"
 }
 
 group = "{{ group_name }}"
