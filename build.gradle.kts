@@ -58,6 +58,17 @@ tasks.withType<KotlinCompile> {
     }
 }
 
+// Temporary fix for the incompatibility of Detekt with Kotlin 1.9.20
+configurations.detekt {
+    resolutionStrategy.eachDependency {
+        if (requested.group == "org.jetbrains.kotlin") {
+            // See https://github.com/detekt/detekt/issues/6198#issuecomment-1700332653
+            // and https://github.com/detekt/detekt/issues/6428
+            useVersion("1.9.10")
+        }
+    }
+}
+
 tasks {
     withType<Test> {
         useJUnitPlatform()
