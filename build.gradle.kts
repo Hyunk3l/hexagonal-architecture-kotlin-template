@@ -20,7 +20,7 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.15.3")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.2")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.3")
     implementation("org.jetbrains.kotlin:kotlin-reflect:1.9.20")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.9.20")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.7.3")
@@ -55,17 +55,6 @@ tasks.withType<KotlinCompile> {
     kotlinOptions {
         freeCompilerArgs = listOf("-Xjsr305=strict")
         jvmTarget = "17"
-    }
-}
-
-// Temporary fix for the incompatibility of Detekt with Kotlin 1.9.10
-configurations.detekt {
-    resolutionStrategy.eachDependency {
-        if (requested.group == "org.jetbrains.kotlin") {
-            // See https://github.com/detekt/detekt/issues/6198#issuecomment-1700332653
-            // and https://github.com/detekt/detekt/issues/6428
-            useVersion("1.9.0")
-        }
     }
 }
 
