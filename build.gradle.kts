@@ -26,7 +26,7 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:1.2.1")
     implementation("com.zaxxer:HikariCP:5.1.0")
     implementation("org.postgresql:postgresql:42.7.0")
-    implementation("org.flywaydb:flyway-core:9.22.3")
+    implementation("org.flywaydb:flyway-core:10.1.0")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.22.0"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
