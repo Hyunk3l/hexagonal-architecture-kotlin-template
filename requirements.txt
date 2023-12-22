@@ -1,2 +1,2 @@
-pydantic==2.5.2
+pydantic==2.5.3
 copier==9.*
