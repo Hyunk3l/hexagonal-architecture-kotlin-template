@@ -5,7 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.4"
     kotlin("jvm") version "1.9.22"
     kotlin("plugin.spring") version "1.9.22"
-    id("org.flywaydb.flyway") version "10.7.1"
+    id("org.flywaydb.flyway") version "10.7.2"
 }
 
 group = "{{ group_name }}"
