@@ -28,7 +28,7 @@ dependencies {
     implementation("com.zaxxer:HikariCP:5.1.0")
     implementation("org.postgresql:postgresql:42.7.2")
     implementation("org.flywaydb:flyway-core:10.10.0")
-    implementation("org.flywaydb:flyway-database-postgresql:10.9.1")
+    implementation("org.flywaydb:flyway-database-postgresql:10.10.0")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.23.1"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -54,7 +54,7 @@ dependencies {
 
 buildscript {
     dependencies {
-        classpath("org.flywaydb:flyway-database-postgresql:10.9.1")
+        classpath("org.flywaydb:flyway-database-postgresql:10.10.0")
     }
 }
 
