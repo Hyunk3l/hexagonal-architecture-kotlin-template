@@ -40,7 +40,7 @@ dependencies {
     testImplementation("org.testcontainers:testcontainers:1.19.8")
     testImplementation("org.testcontainers:junit-jupiter:1.19.8")
     testImplementation("org.testcontainers:postgresql:1.19.8")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.0")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:5.9.1")
     testImplementation("io.kotest:kotest-assertions-json:5.9.0")
     testImplementation("io.kotest:kotest-runner-junit5:5.9.0")
     testImplementation("io.rest-assured:rest-assured:5.4.0")
