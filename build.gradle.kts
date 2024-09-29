@@ -29,7 +29,7 @@ dependencies {
     implementation("org.postgresql:postgresql:42.7.4")
     implementation("org.flywaydb:flyway-core:10.18.2")
     implementation("org.flywaydb:flyway-database-postgresql:10.18.2")
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.24.0"))
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.24.1"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
