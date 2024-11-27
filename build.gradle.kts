@@ -22,7 +22,7 @@ dependencies {
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.18.1")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.2.3")
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.0.21")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.0.21")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.0")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.9.0")
     implementation("io.arrow-kt:arrow-core:1.2.4")
     implementation("com.zaxxer:HikariCP:6.2.1")
