@@ -5,7 +5,7 @@ plugins {
     id("io.spring.dependency-management") version "1.1.7"
     kotlin("jvm") version "2.1.0"
     kotlin("plugin.spring") version "2.1.0"
-    id("org.flywaydb.flyway") version "11.1.1"
+    id("org.flywaydb.flyway") version "11.2.0"
 }
 
 group = "{{ group_name }}"
@@ -27,8 +27,8 @@ dependencies {
     implementation("io.arrow-kt:arrow-core:2.0.0")
     implementation("com.zaxxer:HikariCP:6.2.1")
     implementation("org.postgresql:postgresql:42.7.5")
-    implementation("org.flywaydb:flyway-core:11.1.1")
-    implementation("org.flywaydb:flyway-database-postgresql:11.1.1")
+    implementation("org.flywaydb:flyway-core:11.2.0")
+    implementation("org.flywaydb:flyway-database-postgresql:11.2.0")
     implementation(platform("org.apache.logging.log4j:log4j-bom:2.24.3"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
@@ -54,7 +54,7 @@ dependencies {
 
 buildscript {
     dependencies {
-        classpath("org.flywaydb:flyway-database-postgresql:11.1.1")
+        classpath("org.flywaydb:flyway-database-postgresql:11.2.0")
     }
 }
 
