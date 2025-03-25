@@ -25,7 +25,7 @@ dependencies {
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.1.20")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.10.1")
     implementation("io.arrow-kt:arrow-core:2.0.1")
-    implementation("com.zaxxer:HikariCP:6.2.1")
+    implementation("com.zaxxer:HikariCP:6.3.0")
     implementation("org.postgresql:postgresql:42.7.5")
     implementation("org.flywaydb:flyway-core:11.4.1")
     implementation("org.flywaydb:flyway-database-postgresql:11.4.1")
