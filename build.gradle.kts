@@ -49,7 +49,7 @@ dependencies {
     testImplementation("io.rest-assured:json-schema-validator:5.5.1")
     testImplementation("io.mockk:mockk:1.14.2")
     testImplementation("com.ninja-squad:springmockk:4.0.2")
-    testImplementation("com.tngtech.archunit:archunit:1.4.0")
+    testImplementation("com.tngtech.archunit:archunit:1.4.1")
 }
 
 buildscript {
