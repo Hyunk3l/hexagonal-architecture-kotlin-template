@@ -47,7 +47,7 @@ dependencies {
     testImplementation("io.rest-assured:json-path:5.5.5")
     testImplementation("io.rest-assured:xml-path:5.5.5")
     testImplementation("io.rest-assured:json-schema-validator:5.5.5")
-    testImplementation("io.mockk:mockk:1.14.2")
+    testImplementation("io.mockk:mockk:1.14.4")
     testImplementation("com.ninja-squad:springmockk:4.0.2")
     testImplementation("com.tngtech.archunit:archunit:1.4.1")
 }
