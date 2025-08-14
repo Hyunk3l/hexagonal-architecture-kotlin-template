@@ -1,15 +1,18 @@
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+import org.gradle.api.tasks.testing.Test
 
 plugins {
     id("org.springframework.boot") version "3.5.4"
     id("io.spring.dependency-management") version "1.1.7"
-    kotlin("jvm") version "2.1.21"
+    kotlin("jvm") version "2.2.10"
     kotlin("plugin.spring") version "2.2.10"
     id("org.flywaydb.flyway") version "11.11.0"
 }
 
 group = "{{ group_name }}"
 version = "0.0.1-SNAPSHOT"
+
 java.sourceCompatibility = JavaVersion.VERSION_21
 
 repositories {
@@ -52,44 +55,45 @@ dependencies {
     testImplementation("com.tngtech.archunit:archunit:1.4.1")
 }
 
-buildscript {
-    dependencies {
-        classpath("org.flywaydb:flyway-database-postgresql:11.11.0")
+kotlin {
+    jvmToolchain(21)
+    compilerOptions {
+        // was: freeCompilerArgs = listOf("-Xjsr305=strict")
+        freeCompilerArgs.add("-Xjsr305=strict")
+
+        // was: jvmTarget = "21"
+        jvmTarget.set(JvmTarget.JVM_21)
     }
 }
 
-tasks.withType<KotlinCompile> {
-    kotlinOptions {
-        freeCompilerArgs = listOf("-Xjsr305=strict")
-        jvmTarget = "21"
-    }
+tasks.withType<Test>().configureEach {
+    useJUnitPlatform()
 }
 
-tasks {
-    withType<Test> {
-        useJUnitPlatform()
+val unitTest = tasks.register<Test>("unitTest") {
+    description = "Runs unit tests."
+    useJUnitPlatform {
+        excludeTags("integration", "component")
     }
+    shouldRunAfter(tasks.test)
+}
 
-    task<Test>("unitTest") {
-        useJUnitPlatform {
-            excludeTags("integration")
-            excludeTags("component")
-        }
-        shouldRunAfter(test)
+val integrationTest = tasks.register<Test>("integrationTest") {
+    description = "Runs integration tests."
+    useJUnitPlatform {
+        includeTags("integration")
     }
+    shouldRunAfter(tasks.test)
+}
 
-    task<Test>("integrationTest") {
-        description = "Runs integration tests."
-        useJUnitPlatform {
-            includeTags("integration")
-        }
-        shouldRunAfter(test)
+val componentTest = tasks.register<Test>("componentTest") {
+    description = "Runs component tests."
+    useJUnitPlatform {
+        includeTags("component")
     }
+    shouldRunAfter(tasks.test)
+}
 
-    task<Test>("componentTest") {
-        useJUnitPlatform {
-            includeTags("component")
-        }
-        shouldRunAfter(test)
-    }
+tasks.named("check") {
+    dependsOn(unitTest, integrationTest, componentTest)
 }
