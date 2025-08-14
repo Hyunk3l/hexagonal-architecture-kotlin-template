@@ -3,7 +3,7 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 plugins {
     id("org.springframework.boot") version "3.5.4"
     id("io.spring.dependency-management") version "1.1.7"
-    kotlin("jvm") version "2.1.21"
+    kotlin("jvm") version "2.2.10"
     kotlin("plugin.spring") version "2.1.21"
     id("org.flywaydb.flyway") version "11.11.1"
 }
