@@ -48,7 +48,7 @@ dependencies {
     testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
     testImplementation("io.rest-assured:rest-assured:5.5.6")
     testImplementation("io.rest-assured:json-path:5.5.6")
-    testImplementation("io.rest-assured:xml-path:5.5.5")
+    testImplementation("io.rest-assured:xml-path:5.5.6")
     testImplementation("io.rest-assured:json-schema-validator:5.5.6")
     testImplementation("io.mockk:mockk:1.14.5")
     testImplementation("com.ninja-squad:springmockk:4.0.2")
