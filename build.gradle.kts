@@ -44,7 +44,7 @@ dependencies {
     testImplementation("org.testcontainers:postgresql:1.21.3")
     testImplementation("io.kotest:kotest-assertions-core-jvm:6.0.7")
     testImplementation("io.kotest:kotest-assertions-json:6.0.7")
-    testImplementation("io.kotest:kotest-runner-junit5:6.0.5")
+    testImplementation("io.kotest:kotest-runner-junit5:6.0.7")
     testImplementation("io.rest-assured:rest-assured:5.5.6")
     testImplementation("io.rest-assured:json-path:5.5.6")
     testImplementation("io.rest-assured:xml-path:5.5.6")
