@@ -4,7 +4,7 @@ import org.gradle.api.tasks.testing.Test
 plugins {
     id("org.springframework.boot") version "4.0.2"
     id("io.spring.dependency-management") version "1.1.7"
-    kotlin("jvm") version "2.3.0"
+    kotlin("jvm") version "2.3.10"
     kotlin("plugin.spring") version "2.3.0"
     id("org.flywaydb.flyway") version "12.0.0"
 }
