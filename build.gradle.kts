@@ -40,7 +40,7 @@ dependencies {
     }
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
     testImplementation("io.projectreactor:reactor-test:3.8.4")
-    testImplementation("org.testcontainers:testcontainers:2.0.3")
+    testImplementation("org.testcontainers:testcontainers:2.0.4")
     testImplementation("org.testcontainers:junit-jupiter:1.21.4")
     testImplementation("org.testcontainers:postgresql:1.21.4")
     testImplementation("io.kotest:kotest-assertions-core-jvm:6.1.7")
