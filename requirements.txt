@@ -1,3 +1,3 @@
 pydantic==2.13.3
-copier==9.14.3
+copier==9.15.0
 pyyaml-include<3
