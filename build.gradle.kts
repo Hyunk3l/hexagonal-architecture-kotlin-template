@@ -25,7 +25,7 @@ dependencies {
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.3.0")
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.3.21")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.3.21")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.10.2")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.11.0")
     implementation("io.arrow-kt:arrow-core:2.2.2.1")
     implementation("com.zaxxer:HikariCP:7.0.2")
     implementation("org.postgresql:postgresql:42.7.11")
