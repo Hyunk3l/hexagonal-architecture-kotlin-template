@@ -70,8 +70,13 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
+val testSourceSet = sourceSets.named("test").get()
+
 val unitTest = tasks.register<Test>("unitTest") {
     description = "Runs unit tests."
+    group = "verification"
+    testClassesDirs = testSourceSet.output.classesDirs
+    classpath = testSourceSet.runtimeClasspath
     useJUnitPlatform {
         excludeTags("integration", "component")
     }
@@ -80,6 +85,9 @@ val unitTest = tasks.register<Test>("unitTest") {
 
 val integrationTest = tasks.register<Test>("integrationTest") {
     description = "Runs integration tests."
+    group = "verification"
+    testClassesDirs = testSourceSet.output.classesDirs
+    classpath = testSourceSet.runtimeClasspath
     useJUnitPlatform {
         includeTags("integration")
     }
@@ -88,12 +96,11 @@ val integrationTest = tasks.register<Test>("integrationTest") {
 
 val componentTest = tasks.register<Test>("componentTest") {
     description = "Runs component tests."
+    group = "verification"
+    testClassesDirs = testSourceSet.output.classesDirs
+    classpath = testSourceSet.runtimeClasspath
     useJUnitPlatform {
         includeTags("component")
     }
     shouldRunAfter(tasks.test)
-}
-
-tasks.named("check") {
-    dependsOn(unitTest, integrationTest, componentTest)
 }
