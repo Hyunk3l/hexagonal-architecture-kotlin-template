@@ -46,7 +46,7 @@ dependencies {
     testImplementation("io.kotest:kotest-assertions-core-jvm:6.2.2")
     testImplementation("io.kotest:kotest-assertions-json:6.2.2")
     testImplementation("io.kotest:kotest-runner-junit5:6.2.2")
-    testImplementation("io.rest-assured:rest-assured:6.0.0")
+    testImplementation("io.rest-assured:rest-assured:6.0.1")
     testImplementation("io.rest-assured:json-path:6.0.1")
     testImplementation("io.rest-assured:xml-path:6.0.0")
     testImplementation("io.rest-assured:json-schema-validator:6.0.1")
