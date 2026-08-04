@@ -52,7 +52,7 @@ dependencies {
     testImplementation("io.rest-assured:json-schema-validator:6.0.1")
     testImplementation("io.mockk:mockk:1.14.11")
     testImplementation("com.ninja-squad:springmockk:5.0.1")
-    testImplementation("com.tngtech.archunit:archunit:1.4.2")
+    testImplementation("com.tngtech.archunit:archunit:1.5.0")
 }
 
 kotlin {
