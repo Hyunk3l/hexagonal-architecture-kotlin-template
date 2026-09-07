@@ -4,7 +4,7 @@ import org.gradle.api.tasks.testing.Test
 plugins {
     id("org.springframework.boot") version "4.1.1"
     id("io.spring.dependency-management") version "1.1.7"
-    kotlin("jvm") version "2.4.10"
+    kotlin("jvm") version "2.4.20"
     kotlin("plugin.spring") version "2.4.10"
     id("org.flywaydb.flyway") version "13.5.0"
 }
@@ -23,8 +23,8 @@ dependencies {
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.22.2")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.3.2")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.10")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.10")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.20")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.20")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.11.0")
     implementation("io.arrow-kt:arrow-core:2.2.3")
     implementation("com.zaxxer:HikariCP:7.1.0")
