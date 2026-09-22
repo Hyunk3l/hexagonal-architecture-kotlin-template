@@ -21,7 +21,7 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.22.2")
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.22.3")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.3.2")
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.20")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.20")
