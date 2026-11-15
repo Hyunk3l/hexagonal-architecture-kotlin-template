@@ -1,48 +1,22 @@
 ---
 name: spring-boot-kotlin-hexagonal
-description: Generate a Spring Boot Kotlin hexagonal architecture project that matches the Hyunk3l hexagonal-architecture-kotlin-template (structure, Gradle config, tests, Docker, and Copier variables). Use when asked to scaffold, recreate, or align a project to this exact template.
+description: Scaffold and verify a new Spring Boot Kotlin project from Hyunk3l's hexagonal-architecture-kotlin-template. Use when the user wants this specific template or asks to use its fork or local checkout.
 ---
 
-# Spring Boot Kotlin Hexagonal Template (Claude Code)
+# Spring Boot Kotlin Hexagonal Template
 
-## Quick start
+Use Copier with [the upstream template](https://github.com/Hyunk3l/hexagonal-architecture-kotlin-template) or a fork or local checkout supplied by the user. Use the latest stable tag selected by Copier by default and pass `--vcs-ref` when the user specifies a version, branch, or commit.
 
-- Confirm the target directory and the template source path (use the GitHub template repo by default).
-- Collect template variables: `tld`, `group_name`, `project_name`.
-- Prefer using Copier to render the template.
+1. Determine the destination and the values for `tld`, `group_name`, and `project_name` from the request. Ask only for missing choices that affect the destination or package name. Read the selected template's `copier.yaml` when using its defaults. If the destination already contains files, inspect it for collisions before rendering.
+2. Check that Copier is available. If it is missing, follow the template's installation instructions or report the missing prerequisite. Run `copier copy` with the resolved values so the command can run unattended.
 
-## Workflow
+   ```sh
+   copier copy \
+     --data "tld=$tld" \
+     --data "group_name=$group_name" \
+     --data "project_name=$project_name" \
+     "$template_source" "$destination"
+   ```
 
-1. Ask for:
-   - Target output directory (absolute or repo-relative).
-   - `tld`, `group_name`, `project_name` values.
-   - Template source path. Default to the public GitHub template repo unless the user provides another path.
-2. If Copier is available, run it with the local template path.
-   - If Copier is missing, ask to install it or fall back to manual rendering.
-3. Validate the output structure matches the template (see references).
-4. If the user asks for tweaks, only change what they request; do not alter template defaults otherwise.
-
-## Copier usage
-
-- Default template path to the GitHub repo:
-  ```
-  copier https://github.com/Hyunk3l/hexagonal-architecture-kotlin-template.git <target_path>
-  ```
-- If the user provides a local template path, use:
-  `copier <template_path> <target_path>`.
-- Answer prompts with collected values.
-- Do not copy excluded files (see `references/template-overview.md`).
-
-## Manual rendering fallback
-
-If Copier cannot be used, manually:
-
-- Copy all non-excluded files and directories from the template.
-- Replace `{{ tld }}`, `{{ group_name }}`, `{{ project_name }}` in file contents and paths.
-- Drop the `.jinja` suffix from rendered files.
-- Keep Gradle, Docker, Flyway, and test layout intact.
-
-## References
-
-- Template layout and exclusions: `references/template-overview.md`
-- Copier variables and defaults: `references/copier-variables.md`
+3. Check the generated Gradle project name, Kotlin package paths, and Gradle wrapper. Run `./gradlew unitTest` from the generated directory when Java is available. Use the integration and component test tasks when full validation is requested and Docker is available.
+4. Report the destination, the template version or ref used, and the validation result.
