@@ -3,7 +3,6 @@ package {{tld}}.{{group_name}}.{{project_name}}.infrastructure.adapters.inbound.
 import {{tld}}.{{group_name}}.{{project_name}}.application.service.SignUpCustomerRequest
 import {{tld}}.{{group_name}}.{{project_name}}.application.service.SignUpCustomerService
 import java.util.UUID
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.PostMapping
@@ -11,20 +10,19 @@ import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RestController
 
 @RestController
-class SignUpController {
-
-    @Autowired
-    private lateinit var signUpCustomerService: SignUpCustomerService
+class SignUpController(
+    private val signUpCustomerService: SignUpCustomerService,
+) {
 
     @PostMapping("/customers")
-    fun signUpCustomer(@RequestBody requestBody: HttpSignUpCustomerRequestBody): Any =
+    fun signUpCustomer(@RequestBody requestBody: HttpSignUpCustomerRequestBody): ResponseEntity<*> =
         requestBody.toServiceRequest()
             .let {
                 signUpCustomerService.invoke(it)
             }
             .fold(
                 {
-                    ResponseEntity.status(HttpStatus.SERVICE_UNAVAILABLE).build()
+                    ResponseEntity.badRequest().body(HttpErrorResponse(it.message))
                 }, {
                     HttpSignUpCustomerResponse(it.id).let { response ->
                         ResponseEntity.status(HttpStatus.CREATED).body(response)
@@ -48,3 +46,5 @@ data class HttpSignUpCustomerRequestBody(
 )
 
 data class HttpSignUpCustomerResponse(val id: UUID)
+
+data class HttpErrorResponse(val message: String)

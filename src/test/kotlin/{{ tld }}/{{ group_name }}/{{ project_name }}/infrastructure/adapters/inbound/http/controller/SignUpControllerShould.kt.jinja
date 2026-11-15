@@ -67,7 +67,7 @@ class SignUpControllerShould {
     }
 
     @Test
-    fun `return a 500 if any error in the use case`() {
+    fun `return a 400 if any domain error in the use case`() {
         val signUpCustomerRequest = SignUpCustomerRequest(
             id = CUSTOMER_ID,
             name = "Fabrizio",
@@ -92,6 +92,12 @@ class SignUpControllerShould {
 
         response
             .expectStatus()
-            .is5xxServerError
+            .isBadRequest
+            .expectBody<String>()
+            .returnResult().responseBody!!.shouldEqualJson("""
+                {
+                    "message": "Any error"
+                }
+            """.trimIndent())
     }
 }

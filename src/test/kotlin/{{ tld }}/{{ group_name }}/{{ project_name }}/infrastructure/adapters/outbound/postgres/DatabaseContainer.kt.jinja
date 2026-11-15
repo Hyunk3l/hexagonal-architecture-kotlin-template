@@ -4,16 +4,15 @@ import com.zaxxer.hikari.HikariConfig
 import com.zaxxer.hikari.HikariDataSource
 import org.flywaydb.core.Flyway
 import org.flywaydb.core.api.configuration.FluentConfiguration
-import org.testcontainers.containers.PostgreSQLContainer
-import org.testcontainers.utility.DockerImageName
+import org.testcontainers.postgresql.PostgreSQLContainer
 
 class DatabaseContainer {
 
-    val postgresContainer: PostgreSQLContainer<*> = PostgreSQLContainer(DockerImageName.parse("postgres:16.1"))
+    val postgresContainer = PostgreSQLContainer("postgres:18.7")
         .withDatabaseName("somedatabasename")
         .withUsername("postgres")
         .withPassword("postgres")
-        .also{ it.start() }
+        .also { it.start() }
 
     val dataSource = HikariConfig()
         .apply {

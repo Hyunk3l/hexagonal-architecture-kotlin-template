@@ -2,17 +2,21 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.gradle.api.tasks.testing.Test
 
 plugins {
-    id("org.springframework.boot") version "4.0.2"
+    id("org.springframework.boot") version "4.1.2"
     id("io.spring.dependency-management") version "1.1.7"
-    kotlin("jvm") version "2.3.0"
-    kotlin("plugin.spring") version "2.3.0"
-    id("org.flywaydb.flyway") version "12.0.0"
+    kotlin("jvm") version "2.4.21"
+    kotlin("plugin.spring") version "2.4.21"
+    id("org.flywaydb.flyway") version "13.12.2"
 }
 
 group = "{{ group_name }}"
 version = "0.0.1-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_21
+
+// Jackson 3.3 and Jackson 2 share the 2.23 annotations.
+extra["jackson-2-bom.version"] = "2.23.0"
+extra["jackson-bom.version"] = "3.3.0"
 
 repositories {
     mavenCentral()
@@ -21,17 +25,17 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.21.0")
-    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.3.0")
-    implementation("org.jetbrains.kotlin:kotlin-reflect:2.3.0")
-    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.3.0")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.10.2")
-    implementation("io.arrow-kt:arrow-core:2.2.1.1")
-    implementation("com.zaxxer:HikariCP:7.0.2")
-    implementation("org.postgresql:postgresql:42.7.9")
-    implementation("org.flywaydb:flyway-core:12.0.0")
-    implementation("org.flywaydb:flyway-database-postgresql:12.0.0")
-    implementation(platform("org.apache.logging.log4j:log4j-bom:2.25.3"))
+    implementation("tools.jackson.module:jackson-module-kotlin")
+    implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.3.3")
+    implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.21")
+    implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.21")
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.11.0")
+    implementation("io.arrow-kt:arrow-core:2.3.0.1")
+    implementation("com.zaxxer:HikariCP:7.1.0")
+    implementation("org.postgresql:postgresql:42.7.14")
+    implementation("org.flywaydb:flyway-core:13.12.2")
+    implementation("org.flywaydb:flyway-database-postgresql:13.12.2")
+    implementation(platform("org.apache.logging.log4j:log4j-bom:2.26.1"))
 
     testImplementation("org.springframework.boot:spring-boot-starter-test") {
         exclude(module = "mockito-core")
@@ -39,20 +43,20 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
-    testImplementation("io.projectreactor:reactor-test:3.8.2")
-    testImplementation("org.testcontainers:testcontainers:2.0.3")
-    testImplementation("org.testcontainers:junit-jupiter:1.21.4")
-    testImplementation("org.testcontainers:postgresql:1.21.4")
-    testImplementation("io.kotest:kotest-assertions-core-jvm:6.1.2")
-    testImplementation("io.kotest:kotest-assertions-json:6.1.2")
-    testImplementation("io.kotest:kotest-runner-junit5:6.1.2")
-    testImplementation("io.rest-assured:rest-assured:6.0.0")
-    testImplementation("io.rest-assured:json-path:6.0.0")
-    testImplementation("io.rest-assured:xml-path:6.0.0")
-    testImplementation("io.rest-assured:json-schema-validator:6.0.0")
-    testImplementation("io.mockk:mockk:1.14.9")
+    testImplementation("io.projectreactor:reactor-test:3.8.8")
+    testImplementation("org.testcontainers:testcontainers:2.0.5")
+    testImplementation("org.testcontainers:testcontainers-junit-jupiter:2.0.5")
+    testImplementation("org.testcontainers:testcontainers-postgresql:2.0.5")
+    testImplementation("io.kotest:kotest-assertions-core-jvm:6.2.7")
+    testImplementation("io.kotest:kotest-assertions-json:6.2.7")
+    testImplementation("io.kotest:kotest-runner-junit5:6.2.7")
+    testImplementation("io.rest-assured:rest-assured:6.3.0")
+    testImplementation("io.rest-assured:json-path:6.3.0")
+    testImplementation("io.rest-assured:xml-path:6.3.0")
+    testImplementation("io.rest-assured:json-schema-validator:6.3.0")
+    testImplementation("io.mockk:mockk:1.14.12")
     testImplementation("com.ninja-squad:springmockk:5.0.1")
-    testImplementation("com.tngtech.archunit:archunit:1.4.1")
+    testImplementation("com.tngtech.archunit:archunit:1.5.1")
 }
 
 kotlin {
@@ -70,8 +74,13 @@ tasks.withType<Test>().configureEach {
     useJUnitPlatform()
 }
 
+val testSourceSet = sourceSets.named("test").get()
+
 val unitTest = tasks.register<Test>("unitTest") {
     description = "Runs unit tests."
+    group = "verification"
+    testClassesDirs = testSourceSet.output.classesDirs
+    classpath = testSourceSet.runtimeClasspath
     useJUnitPlatform {
         excludeTags("integration", "component")
     }
@@ -80,6 +89,9 @@ val unitTest = tasks.register<Test>("unitTest") {
 
 val integrationTest = tasks.register<Test>("integrationTest") {
     description = "Runs integration tests."
+    group = "verification"
+    testClassesDirs = testSourceSet.output.classesDirs
+    classpath = testSourceSet.runtimeClasspath
     useJUnitPlatform {
         includeTags("integration")
     }
@@ -88,12 +100,11 @@ val integrationTest = tasks.register<Test>("integrationTest") {
 
 val componentTest = tasks.register<Test>("componentTest") {
     description = "Runs component tests."
+    group = "verification"
+    testClassesDirs = testSourceSet.output.classesDirs
+    classpath = testSourceSet.runtimeClasspath
     useJUnitPlatform {
         includeTags("component")
     }
     shouldRunAfter(tasks.test)
-}
-
-tasks.named("check") {
-    dependsOn(unitTest, integrationTest, componentTest)
 }
