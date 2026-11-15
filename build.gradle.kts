@@ -14,6 +14,8 @@ version = "0.0.1-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_21
 
+extra["jackson-bom.version"] = "3.3.0"
+
 repositories {
     mavenCentral()
 }
@@ -21,12 +23,12 @@ repositories {
 dependencies {
     implementation("org.springframework.boot:spring-boot-starter-webflux")
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.23.0")
+    implementation("tools.jackson.module:jackson-module-kotlin")
     implementation("io.projectreactor.kotlin:reactor-kotlin-extensions:1.3.3")
     implementation("org.jetbrains.kotlin:kotlin-reflect:2.4.21")
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:2.4.21")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor:1.11.0")
-    implementation("io.arrow-kt:arrow-core:2.3.0")
+    implementation("io.arrow-kt:arrow-core:2.3.0.1")
     implementation("com.zaxxer:HikariCP:7.1.0")
     implementation("org.postgresql:postgresql:42.7.14")
     implementation("org.flywaydb:flyway-core:13.12.2")
@@ -41,8 +43,8 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
     testImplementation("io.projectreactor:reactor-test:3.8.8")
     testImplementation("org.testcontainers:testcontainers:2.0.5")
-    testImplementation("org.testcontainers:junit-jupiter:1.21.4")
-    testImplementation("org.testcontainers:postgresql:1.21.4")
+    testImplementation("org.testcontainers:testcontainers-junit-jupiter:2.0.5")
+    testImplementation("org.testcontainers:testcontainers-postgresql:2.0.5")
     testImplementation("io.kotest:kotest-assertions-core-jvm:6.2.7")
     testImplementation("io.kotest:kotest-assertions-json:6.2.7")
     testImplementation("io.kotest:kotest-runner-junit5:6.2.7")
