@@ -14,6 +14,8 @@ version = "0.0.1-SNAPSHOT"
 
 java.sourceCompatibility = JavaVersion.VERSION_21
 
+// Jackson 3.3 and Jackson 2 share the 2.23 annotations.
+extra["jackson-2-bom.version"] = "2.23.0"
 extra["jackson-bom.version"] = "3.3.0"
 
 repositories {
