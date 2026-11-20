@@ -43,7 +43,7 @@ dependencies {
         exclude(group = "org.junit.vintage", module = "junit-vintage-engine")
     }
     testImplementation("org.springframework.boot:spring-boot-starter-webflux-test")
-    testImplementation("io.projectreactor:reactor-test:3.8.8")
+    testImplementation("io.projectreactor:reactor-test:3.9.0")
     testImplementation("org.testcontainers:testcontainers:2.0.5")
     testImplementation("org.testcontainers:testcontainers-junit-jupiter:2.0.5")
     testImplementation("org.testcontainers:testcontainers-postgresql:2.0.5")
